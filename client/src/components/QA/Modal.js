@@ -77,6 +77,7 @@ const Modal = ({ questionModal, question, product, toggleModal, getQuestions, ge
               <div>Ask Your Question</div>
               <div className="QA-ModalHeader">
                 About the
+                &nbsp;
                 {product.name}
                 {' '}
                 Here
@@ -94,21 +95,24 @@ const Modal = ({ questionModal, question, product, toggleModal, getQuestions, ge
             </>
           )}
 
-        {questionModal ? (<div className="QA-ModalBodyHeader">Your Question</div>) : (<div className="QA-ModalBodyHeader">Your Answer</div>)}
+        {questionModal
+          ? (<div className="QA-ModalBodyHeader">Your Question</div>)
+          : (<div className="QA-ModalBodyHeader">Your Answer</div>)}
         <textarea className="QA-ModalBody" name="questionOrAnswer" value={inputs.questionOrAnswer} onChange={(event) => handleInputChange(event)} />
 
         <div className="QA-ModalNameHeader">What is your nickname?</div>
         <input className="QA-ModalName" placeholder="Example: BobRoss9000" name="nickname" value={inputs.nickname} onChange={(event) => handleInputChange(event)} />
-        <p className="QA-ModalNameMessage">For privacy reasons, do not use your full name or email address</p>
+        <p className="QA-ModalNameMessage">**For privacy reasons, do not use your full name or email address**</p>
 
         <div className="QA-ModalEmailHeader">Your Email</div>
-        <input className="QA-ModalEmail" name="email" value={inputs.email} onChange={(event) => handleInputChange(event)} />
-        <p className="QA-ModalEmailMessage">For authentication reasons, you will not be emailed</p>
+        <input className="QA-ModalEmail" placeholder="Example: BobRoss9000@gmail.com" name="email" value={inputs.email} onChange={(event) => handleInputChange(event)} />
+        <p className="QA-ModalEmailMessage">**For authentication reasons, you will not be emailed**</p>
 
         {errorExists && (<div className="QA-ModalError">{errorMessage}</div>)}
 
         <Button color="inherit" onClick={(event) => toggleModal(event)}>Cancel</Button>
-        {questionModal ? (<Button color="inherit" onClick={() => validate()}>Submit Question</Button>)
+        {questionModal
+          ? (<Button color="inherit" onClick={() => validate()}>Submit Question</Button>)
           : (<Button color="inherit" onClick={() => validate()}>Submit Answer</Button>)}
       </div>
     </div>

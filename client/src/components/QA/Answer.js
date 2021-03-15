@@ -48,6 +48,7 @@ const Answer = ({ answer }) => {
         &nbsp; | Helpful?
         &nbsp;
         <a href="#" onClick={(event) => markAnswerHelpful(event)}>Yes</a>
+        {' '}
         (
         {helpfulness}
         )
