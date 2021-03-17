@@ -22,6 +22,7 @@ const sendClickData = async (data) => {
 const getProductData = async (id) => {
   try {
     const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}`);
+    console.log('Product Data: ', response.data); // for DB research
     return response.data;
   } catch (error) {
     console.log(error);
@@ -31,6 +32,7 @@ const getProductData = async (id) => {
 const getStyles = async (id) => {
   try {
     const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}/styles`);
+    console.log('Product Styles: ', response.data); // for DB research
     return response.data;
   } catch (error) {
     console.log(error);
@@ -40,6 +42,7 @@ const getStyles = async (id) => {
 const getRelated = async (id) => {
   try {
     const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}/related`);
+    console.log('Related Products: ', response.data); // for DB research
     return response.data;
   } catch (error) {
     console.log(error);
