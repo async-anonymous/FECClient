@@ -88,7 +88,6 @@ const getReviewsMeta = async (id) => {
 };
 
 const markHelpful = (reviewId, cb) => {
-  console.log(`http://localhost:3001/reviews/${reviewId}/helpful`)
   axios.put(`http://localhost:3001/reviews/${reviewId}/helpful`)
     .then((response) => {
       cb(null, response);

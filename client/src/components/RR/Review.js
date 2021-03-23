@@ -58,7 +58,7 @@ var Review = ({ sortOrder, review, reviewsMeta, updateReviews }) => {
     // console.log(reviewId)
     // console.log('state: ', clickedHelpful)
     //lookup in local state and set state appropriately
-    if (localStorage.getItem(reviewId) && false) {
+    if (localStorage.getItem(reviewId)) {
       alert('Can only select once!');
     } else {
       console.log('can add')

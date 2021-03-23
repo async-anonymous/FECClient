@@ -25,8 +25,6 @@ const ReviewFormModal = ({ sortOrder, productData, clickClosedReviewForm, review
   }
 
   const inputListener = (e) => {
-    console.log('name: ', e.target.name)
-    console.log('value: ', e.target.value)
     if (e.target.name === 'photos') {
       console.log('files: ', e.target.files)
       setState({ ...state, 'photos': e.target.files })
@@ -111,7 +109,6 @@ const ReviewFormModal = ({ sortOrder, productData, clickClosedReviewForm, review
                   // '17': Number(state.Quality),
                   // '18': Number(state.Length),
                   // '19': Number(state.Fit)
-                  console.log('Chars ln 114: ', chars);
                   postBody.characteristics = chars;
                   postBody.photos = []
                   // if (state.photos) {
@@ -124,7 +121,6 @@ const ReviewFormModal = ({ sortOrder, productData, clickClosedReviewForm, review
                   // }
 
                   //axios request and exit form
-                   console.log('PostBody ln 127:', postBody)
                   api.addReview(postBody, (err, result) => {
                     if (err) {
                       console.log(err);
