@@ -42,7 +42,7 @@ class ProductDetails extends React.Component {
   findDefaultStyle() {
     const stylesArray = this.props.styles.results || [];
     stylesArray.forEach((style) => {
-      if (style['default?']) this.changeStyle(style);
+      if (style['default_style']) this.changeStyle(style);
     });
   }
 

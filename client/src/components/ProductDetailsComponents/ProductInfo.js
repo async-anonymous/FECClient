@@ -10,7 +10,7 @@ const ProductInfo = (props) => (
     </span>
     <br />
     <br />
-    {props.style.sale_price ? (
+    {(props.style.sale_price !== 'null') ? (
       <>
         <span id="sale-price" className="large">
           $

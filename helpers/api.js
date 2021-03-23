@@ -19,9 +19,11 @@ const sendClickData = async (data) => {
 
 // PRODUCTS DETAIL WIDGET HELPERS
 
+// http://localhost:8080/products/:product_id/
+// https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}
 const getProductData = async (id) => {
   try {
-    const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}`);
+    const response = await axios.get(`http://3.142.191.146/products/${id}`);
     console.log('Product Data: ', response.data); // for DB research
     return response.data;
   } catch (error) {
@@ -29,9 +31,11 @@ const getProductData = async (id) => {
   }
 };
 
+// http://localhost:8080/products/:product_id/styles
+// https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}/styles
 const getStyles = async (id) => {
   try {
-    const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}/styles`);
+    const response = await axios.get(`http://3.142.191.146/products/${id}/styles`);
     console.log('Product Styles: ', response.data); // for DB research
     return response.data;
   } catch (error) {
@@ -39,9 +43,11 @@ const getStyles = async (id) => {
   }
 };
 
+// http://localhost:8080/products/:product_id/related
+// https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}/related
 const getRelated = async (id) => {
   try {
-    const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}/related`);
+    const response = await axios.get(`http://3.142.191.146/products/${id}/related`);
     console.log('Related Products: ', response.data); // for DB research
     return response.data;
   } catch (error) {
