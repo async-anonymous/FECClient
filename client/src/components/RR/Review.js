@@ -58,7 +58,7 @@ var Review = ({ sortOrder, review, reviewsMeta, updateReviews }) => {
     // console.log(reviewId)
     // console.log('state: ', clickedHelpful)
     //lookup in local state and set state appropriately
-    if (localStorage.getItem(reviewId)) {
+    if (localStorage.getItem(reviewId) && false) {
       alert('Can only select once!');
     } else {
       console.log('can add')
@@ -96,7 +96,7 @@ var Review = ({ sortOrder, review, reviewsMeta, updateReviews }) => {
       const year = newDate.getFullYear();
       const date = month + ' ' + day + ', ' + year;
 
-      if (review.response !== undefined && review.response !== null && review.response !== '') {
+      if (review.response !== undefined && review.response !== null && review.response !== '' && review.response !== 'null') {
         setResponseContent(review.response);
         setShowResponse(true);
       } else {
@@ -104,7 +104,7 @@ var Review = ({ sortOrder, review, reviewsMeta, updateReviews }) => {
       }
 
       //filter for images or not
-      if (review.photos.length > 0) {
+      if (review.photos.length > 0 && review.photos.url) {
         setNewImageArray(review.photos)
         setImage(true);
       } else {
@@ -177,13 +177,13 @@ var Review = ({ sortOrder, review, reviewsMeta, updateReviews }) => {
           <span>Helpful?</span>
           <span
             className="reviewBottomUnderline"
-            onClick={() => { setHelpFullClicked(review.review_id) }}
+            onClick={() => { setHelpFullClicked(review.reviews_id) }}
           >Yes ({review.helpfulness})
           </span>
           <span>|</span>
           {/* <span className="reviewBottomUnderline">No (0)</span>
         <span>|</span> */}
-          <span onClick={() => {reportReview(review.review_id)}}
+          <span onClick={() => {reportReview(review.reviews_id)}}
           className="reviewBottomUnderline">Report</span>
         </div>
       </div>
