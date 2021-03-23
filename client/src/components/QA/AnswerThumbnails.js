@@ -7,10 +7,13 @@ const AnswerThumbnails = ({ thumbnails }) => (
   <div className="QA-AnswerThumbnails">
     {
       thumbnails.map((thumbnail) => (
-        <Thumbnail
-          thumbnail={thumbnail.url}
-          key={thumbnail.id}
-        />
+        thumbnail.url !== null && thumbnail.url !== 'null'
+          ? (
+            <Thumbnail
+              thumbnail={thumbnail.url}
+              key={thumbnail.id}
+            />
+          ) : null
       ))
     }
   </div>
