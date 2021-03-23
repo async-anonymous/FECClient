@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable react/jsx-filename-extension */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable import/no-named-as-default-member */
@@ -40,7 +42,7 @@ class ProductDetails extends React.Component {
   findDefaultStyle() {
     const stylesArray = this.props.styles.results || [];
     stylesArray.forEach((style) => {
-      if (style['default?']) this.changeStyle(style);
+      if (style['default_style']) this.changeStyle(style);
     });
   }
 

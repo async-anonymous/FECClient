@@ -19,27 +19,36 @@ const sendClickData = async (data) => {
 
 // PRODUCTS DETAIL WIDGET HELPERS
 
+// http://localhost:8080/products/:product_id/
+// https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}
 const getProductData = async (id) => {
   try {
-    const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}`);
+    const response = await axios.get(`http://3.142.191.146/products/${id}`);
+    console.log('Product Data: ', response.data); // for DB research
     return response.data;
   } catch (error) {
     console.log(error);
   }
 };
 
+// http://localhost:8080/products/:product_id/styles
+// https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}/styles
 const getStyles = async (id) => {
   try {
-    const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}/styles`);
+    const response = await axios.get(`http://3.142.191.146/products/${id}/styles`);
+    console.log('Product Styles: ', response.data); // for DB research
     return response.data;
   } catch (error) {
     console.log(error);
   }
 };
 
+// http://localhost:8080/products/:product_id/related
+// https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}/related
 const getRelated = async (id) => {
   try {
-    const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}/related`);
+    const response = await axios.get(`http://3.142.191.146/products/${id}/related`);
+    console.log('Related Products: ', response.data); // for DB research
     return response.data;
   } catch (error) {
     console.log(error);
@@ -51,10 +60,10 @@ const getRelated = async (id) => {
 //get onePage helper function
 const getNextPage = async (page, id, sort) => {
   // console.log('from inner recursive get next page func: ', sort)
-  const url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/reviews/?sort=${sort}&page=${page}&count=500&product_id=${id}`;
+  const url = `http://localhost:3001/reviews/?sort=${sort}&page=${page}&count=500&product_id=${id}`;
   // console.log(url)
   const response = await axios.get(url);
-  return response.data.results;
+  return response.data;
 };
 
 const getReviews = async (id, sort) => {
@@ -80,7 +89,7 @@ const getReviews = async (id, sort) => {
 
 const getReviewsMeta = async (id) => {
   try {
-    const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/reviews/meta?product_id=${id}`);
+    const response = await axios.get(`http://localhost:3001/reviews/meta?product_id=${id}`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -88,7 +97,7 @@ const getReviewsMeta = async (id) => {
 };
 
 const markHelpful = (reviewId, cb) => {
-  axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/reviews/${reviewId}/helpful`)
+  axios.put(`http://localhost:3001/reviews/${reviewId}/helpful`)
     .then((response) => {
       cb(null, response);
     })
@@ -98,7 +107,7 @@ const markHelpful = (reviewId, cb) => {
 };
 
 const reportReview = (reviewId, cb) => {
-  axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/reviews/${reviewId}/report`)
+  axios.put(`http://localhost:3001/reviews/${reviewId}/report`)
     .then((response) => {
       cb(null, response);
     })
@@ -109,7 +118,7 @@ const reportReview = (reviewId, cb) => {
 
 const addReview = (reviewFormObj, cb) => {
   console.log(reviewFormObj);
-  axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/reviews', reviewFormObj)
+  axios.post('http://localhost:3001/reviews', reviewFormObj)
     .then((response) => {
       cb(null, response);
     })

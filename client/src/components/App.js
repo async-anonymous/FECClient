@@ -10,7 +10,7 @@ import {
   Link,
   HashRouter as Router,
   Route,
-  withRouter
+  withRouter,
 } from 'react-router-dom';
 import ProductDetails from './ProductDetailsComponents/ProductDetails';
 import QA from './QA/QA.js';
@@ -31,7 +31,7 @@ class App extends React.Component {
       reviewsMeta: {},
       isFetching: true,
       sort: 'newest',
-      filter: 0
+      filter: 0,
     };
     this.updateData = this.updateData.bind(this);
     this.updateProductReviews = this.updateProductReviews.bind(this);
