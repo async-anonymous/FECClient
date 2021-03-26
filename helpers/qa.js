@@ -16,7 +16,7 @@ const getQuestions = async (id) => {
 
   try {
     do {
-      let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions?product_id=${id}&page=${page}&count=100&sort=helpful`;
+      let url = `http://3.139.164.218/qa/questions?product_id=${id}&page=${page}&count=100&sort=helpful`;
 
       var onePage = await getNextPage(url);
       questions.push(onePage);
@@ -35,7 +35,7 @@ const getAnswers = async (id) => {
 
   try {
     do {
-      let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${id}/answers?page=${page}&count=100&sort=helpful`;
+      let url = `http://3.139.164.218/qa/questions/${id}/answers?page=${page}&count=100&sort=helpful`;
 
       var onePage = await getNextPage(url);
       answers.push(onePage);
@@ -50,7 +50,7 @@ const getAnswers = async (id) => {
 
 const markQuestionOrAnswerHelpful = async (QorA, id) => {
   try {
-    const url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/${QorA}/${id}/helpful`;
+    const url = `http://3.139.164.218/qa/${QorA}/${id}/helpful`;
     const response = await axios.put(url);
     return response.status;
   } catch (error) {
