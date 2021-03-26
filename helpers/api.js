@@ -19,7 +19,7 @@ const sendClickData = async (data) => {
 
 // PRODUCTS DETAIL WIDGET HELPERS
 
-// http://localhost:8080/products/:product_id/
+// http://app-hrsei-api.herokuapp.com/api/fec2/hr-bld:8080/products/:product_id/
 // https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}
 const getProductData = async (id) => {
   try {
@@ -31,7 +31,7 @@ const getProductData = async (id) => {
   }
 };
 
-// http://localhost:8080/products/:product_id/styles
+// http://app-hrsei-api.herokuapp.com/api/fec2/hr-bld:8080/products/:product_id/styles
 // https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}/styles
 const getStyles = async (id) => {
   try {
@@ -43,7 +43,7 @@ const getStyles = async (id) => {
   }
 };
 
-// http://localhost:8080/products/:product_id/related
+// http://app-hrsei-api.herokuapp.com/api/fec2/hr-bld:8080/products/:product_id/related
 // https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/products/${id}/related
 const getRelated = async (id) => {
   try {
@@ -57,13 +57,14 @@ const getRelated = async (id) => {
 
 // RATINGS/REVIEWS WIDGET HELPERS
 
+
 //get onePage helper function
 const getNextPage = async (page, id, sort) => {
   // console.log('from inner recursive get next page func: ', sort)
   const url = `http://3.142.102.81/reviews/?sort=${sort}&page=${page}&count=500&product_id=${id}`;
   // console.log(url)
   const response = await axios.get(url);
-  return response.data.results;
+  return response.data;
 };
 
 const getReviews = async (id, sort) => {

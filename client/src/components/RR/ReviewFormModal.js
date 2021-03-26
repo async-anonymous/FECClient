@@ -25,8 +25,6 @@ const ReviewFormModal = ({ sortOrder, productData, clickClosedReviewForm, review
   }
 
   const inputListener = (e) => {
-    // console.log('name: ', e.target.name)
-    // console.log('value: ', e.target.value)
     if (e.target.name === 'photos') {
       console.log('files: ', e.target.files)
       setState({ ...state, 'photos': e.target.files })
@@ -123,7 +121,6 @@ const ReviewFormModal = ({ sortOrder, productData, clickClosedReviewForm, review
                   // }
 
                   //axios request and exit form
-                  // console.log(postBody)
                   api.addReview(postBody, (err, result) => {
                     if (err) {
                       console.log(err);
