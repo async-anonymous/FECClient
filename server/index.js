@@ -11,8 +11,8 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.json());
 app.use(cors());
 
-app.get('/loaderio-b30250110d0bc9864253940e1054289a', (req, res) => {
-  res.sendFile('./loaderio-b30250110d0bc9864253940e1054289a.txt');
+app.get('/loaderio-9cdce5ca70bdd5012c8b37d9f8f52bd9', (req, res) => {
+  res.sendFile('./loaderio-9cdce5ca70bdd5012c8b37d9f8f52bd9.txt');
 });
 
 app.listen(PORT, () => {
