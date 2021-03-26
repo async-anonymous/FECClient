@@ -23,6 +23,7 @@ const getQuestions = async (id) => {
       questions.push(onePage);
       page += 1;
     } while (onePage.length > 0);
+    console.log('questions: ', questions);
     return questions.flat();
   } catch (error) {
     return error.response.status;
