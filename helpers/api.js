@@ -61,7 +61,7 @@ const getRelated = async (id) => {
 //get onePage helper function
 const getNextPage = async (page, id, sort) => {
   // console.log('from inner recursive get next page func: ', sort)
-  const url = `http://3.140.55.16:80/reviews/?sort=${sort}&page=${page}&count=500&product_id=${id}`;
+  const url = `http://3.142.102.81/reviews/?sort=${sort}&page=${page}&count=500&product_id=${id}`;
   // console.log(url)
   const response = await axios.get(url);
   return response.data;
@@ -90,7 +90,7 @@ const getReviews = async (id, sort) => {
 
 const getReviewsMeta = async (id) => {
   try {
-    const response = await axios.get(`http://3.140.55.16:80/reviews/meta?product_id=${id}`);
+    const response = await axios.get(`http://3.142.102.81/reviews/meta?product_id=${id}`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -98,7 +98,7 @@ const getReviewsMeta = async (id) => {
 };
 
 const markHelpful = (reviewId, cb) => {
-  axios.put(`http://3.140.55.16:80/reviews/${reviewId}/helpful`)
+  axios.put(`http://3.142.102.81/reviews/${reviewId}/helpful`)
     .then((response) => {
       cb(null, response);
     })
@@ -108,7 +108,7 @@ const markHelpful = (reviewId, cb) => {
 };
 
 const reportReview = (reviewId, cb) => {
-  axios.put(`http://3.140.55.16:80/reviews/${reviewId}/report`)
+  axios.put(`http://3.142.102.81/reviews/${reviewId}/report`)
     .then((response) => {
       cb(null, response);
     })
@@ -119,7 +119,7 @@ const reportReview = (reviewId, cb) => {
 
 const addReview = (reviewFormObj, cb) => {
   console.log(reviewFormObj);
-  axios.post('http://3.140.55.16:80/reviews', reviewFormObj)
+  axios.post('http://3.142.102.81/reviews', reviewFormObj)
     .then((response) => {
       cb(null, response);
     })

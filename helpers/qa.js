@@ -17,12 +17,13 @@ const getQuestions = async (id) => {
   try {
     do {
       // let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions?product_id=${id}&page=${page}&count=100&sort=helpful`;
-      const url = `http://3.140.211.130:3000/questions/?product_id=${id}&page=${page}&count=100`;
+      const url = `http://3.139.164.218/questions/?product_id=${id}&page=${page}&count=100`;
 
       var onePage = await getNextPage(url);
       questions.push(onePage);
       page += 1;
     } while (onePage.length > 0);
+    console.log('questions: ', questions);
     return questions.flat();
   } catch (error) {
     return error.response.status;
@@ -36,7 +37,7 @@ const getAnswers = async (id) => {
   try {
     do {
       // let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${id}/answers?page=${page}&count=100&sort=helpful`;
-      const url = `http://3.140.211.130:3000/answers/?question_id=${id}&page=${page}&count=100`;
+      const url = `http://3.139.164.218/answers/?question_id=${id}&page=${page}&count=100`;
 
       var onePage = await getNextPage(url);
       answers.push(onePage);
@@ -51,7 +52,7 @@ const getAnswers = async (id) => {
 const markQuestionOrAnswerHelpful = async (QorA, id) => {
   try {
     // const url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/${QorA}/${id}/helpful`;
-    const url = `http://3.140.211.130:3000/${QorA}/helpful/${id}`;
+    const url = `http://3.139.164.218/${QorA}/helpful/${id}`;
     const response = await axios.put(url);
     return response.status;
   } catch (error) {
@@ -62,7 +63,7 @@ const markQuestionOrAnswerHelpful = async (QorA, id) => {
 const reportQuestionOrAnswer = async (QorA, id) => {
   try {
     // const url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/${QorA}/${id}/report`;
-    const url = `http://3.140.211.130:3000/answers/report/${id}`;
+    const url = `http://3.139.164.218/answers/report/${id}`;
     const response = await axios.put(url);
     return response.status;
   } catch (error) {
@@ -73,7 +74,7 @@ const reportQuestionOrAnswer = async (QorA, id) => {
 const submitQuestion = async (params) => {
   try {
     // const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions';
-    const url = 'http://3.140.211.130:3000/questions';
+    const url = 'http://3.139.164.218/questions';
     console.log(params);
     const response = await axios.post(url, params);
     return response.config.data;
@@ -85,7 +86,7 @@ const submitQuestion = async (params) => {
 const submitAnswer = async (id, params) => {
   try {
     // const url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${id}/answers`;
-    const url = `http://3.140.211.130:3000/answers/${id}`;
+    const url = `http://3.139.164.218/answers/${id}`;
     const response = await axios.post(url, params);
     return response.status;
   } catch (error) {
